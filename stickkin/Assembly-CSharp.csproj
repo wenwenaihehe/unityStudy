@@ -53,9 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Script\TestMain.cs" />
-     <Compile Include="Assets\Test.cs" />
-     <Compile Include="Assets\testmain.cs" />
+     <Compile Include="Assets\Script\GameManager.cs" />
+     <Compile Include="Assets\Script\Pin.cs" />
+     <Compile Include="Assets\Script\RoateSelf.cs" />
  <Reference Include="Unity.DocZh.Editor">
  <HintPath>/Users/jianghehe/Desktop/jhCode/gitHub/unityStudy/stickkin/Library/ScriptAssemblies/Unity.DocZh.Editor.dll</HintPath>
  </Reference>
