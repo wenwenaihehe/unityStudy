@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Script\GameManager.cs" />
      <Compile Include="Assets\Script\Pin.cs" />
+     <Compile Include="Assets\Script\PinHead.cs" />
      <Compile Include="Assets\Script\RoateSelf.cs" />
  <Reference Include="Unity.DocZh.Editor">
  <HintPath>/Users/jianghehe/Desktop/jhCode/gitHub/unityStudy/stickkin/Library/ScriptAssemblies/Unity.DocZh.Editor.dll</HintPath>
