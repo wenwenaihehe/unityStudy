@@ -143,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pinPrefab: {fileID: 6366817561050050040, guid: 909b2916ef85c4f7e9321205603a3f36,
     type: 3}
+  score: {fileID: 1721363343}
 --- !u!4 &349066389
 Transform:
   m_ObjectHideFlags: 0

@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{955A35DB-565A-1C29-7E64-60C1A2CABCE5}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Pin.cs">
+    <Files>
+      <File FileName="Assets/Script/PinHead.cs" Line="15" Column="1" />
+      <File FileName="Assets/Script/GameManager.cs" Line="45" Column="61" />
+      <File FileName="Assets/Script/Pin.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="stickkin" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Script" expanded="True">
+                <Node name="Pin.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="42e37eaa-a915-444f-8b7d-54c66d65baf4" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
