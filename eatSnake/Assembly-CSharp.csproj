@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameLayer.cs" />
     <Compile Include="Assets\Scripts\SnakeHead.cs" />
+    <Compile Include="Assets\Scripts\StartScene.cs" />
     <Reference Include="Unity.DocZh.Editor">
       <HintPath>/Users/jianghehe/Desktop/jhCode/gitHub/unityStudy/eatSnake/Library/ScriptAssemblies/Unity.DocZh.Editor.dll</HintPath>
     </Reference>
