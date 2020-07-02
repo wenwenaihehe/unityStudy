@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{35248F45-4097-D7F1-F827-798FB2B8E271}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/StartScene.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SnakeHead.cs">
     <Files>
       <File FileName="Assets/Scripts/GameLayer.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/SnakeHead.cs" Line="16" Column="9" />
@@ -11,7 +11,7 @@
           <Node name="eatSnake" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="StartScene.cs" selected="True" />
+                <Node name="SnakeHead.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -21,7 +21,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="cf7b09ed-9652-4cc0-8fc1-d22bb8655271" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="bd06fb75-41e4-4e32-9ce9-f1689fd8ea40" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
