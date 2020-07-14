@@ -10,10 +10,10 @@ public class StartScene : MonoBehaviour
     {
         string startSceneName = "LobbyScene";
         Scene scene = SceneManager.GetActiveScene();
-        if (scene.name.Equals(startSceneName))
-        {
-            return;
-        }
+        //if (scene.name.Equals(startSceneName))
+        //{
+        //    return;
+        //}
         SceneManager.LoadScene(startSceneName);
     }
 }
