@@ -225,6 +225,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nHeight: 9
   nWidth: 9
+  beginX: 70
+  beginY: 70
+  SpacingX: 5
+  SpacingY: 5
 --- !u!1 &121279783
 GameObject:
   m_ObjectHideFlags: 0
