@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEngine.SceneManagement;
 
 public class GameScene : MonoBehaviour
 {
@@ -23,12 +25,12 @@ public class GameScene : MonoBehaviour
         startPoint = new Vector3(backSize.width / 2 * -1, backSize.height / 2 * -1, 0);
         initTile();
         initItem();
+        // Invoke("test", 1);
+        CheckConnect();
     }
-
     // Update is called once per frame
     void Update()
     {
-        
     }
     void initTile()
     {
@@ -73,6 +75,8 @@ public class GameScene : MonoBehaviour
                 pItem.transform.SetParent(pTile.transform);
                 pItem.transform.localScale = Vector3.one;
                 pItem.transform.localPosition = Vector3.zero;
+
+                pTile.GetComponent<BaseTile>().SetItem(pItem);
             }
         }
     }
@@ -82,6 +86,81 @@ public class GameScene : MonoBehaviour
         GameObject pRet = Instantiate(pItem);
         pRet.transform.localPosition = Vector3.zero;
         return pRet;
+    }
+    public bool CheckConnect()
+    { 
+        int index1, index2;
+        int start, end;
+        int count = 0;
+        Vector3[, ] findPos;
+        for (int x = 0; x < nWidth; x++)
+        {
+            for (int y = 0; y < nHeight; y++)
+            {
+                if (m_pTile[x, y].GetComponent<BaseTile>().getItem() != null)
+                {
+                    GameObject pItem = m_pTile[x, y].GetComponent<BaseTile>().getItem();
+
+                    ArrayList pPos = GetConnectPos(x, y, pItem.GetComponent<fruit>().getColor());
+
+                    if (pPos.Count >= 3)
+                    {
+                        for (int i = 0; i < pPos.Count; i++)
+                        {
+                            Vector3 p = (Vector3)pPos[i];
+
+                            Console.WriteLine("x: {0} , y:{1}", p.x, p.y);
+                        }
+                    }
+                }
+            }
+        }
+        return true;
+    }
+    ArrayList GetConnectPos(int x, int y, int color)
+    {
+        ArrayList targetList = new ArrayList();
+        int[,] mark = new int[nWidth, nHeight];
+
+        for (int nx = 0; nx < nWidth; nx++)
+        {
+            for (int ny = 0; ny < nHeight; ny++)
+            {
+                mark[nx, ny] = 0;
+            }
+        }
+        getConnect(color, x, y, targetList, mark);
+        Debug.Log("ffffff");
+        Debug.Log(targetList.Count);
+        return targetList;
+    }
+    void getConnect(int color, int x, int y, ArrayList vector3s, int[,] mark)
+    {
+        if (x < 0 || x >= nWidth || y < 0 || y >= nWidth)
+        {
+            return;
+        }
+        if (mark[x, y] == 1)
+        {
+            return;
+        }
+        Vector3 curPos = new Vector3(x, y);
+        Vector3[] pPos = { new Vector3(0, 1), new Vector3(1, 0), new Vector3(-1, 0), new Vector3(0, -1)};
+        mark[x, y] = 1;
+        if (m_pTile[x, y].GetComponent<BaseTile>().getItem() != null)
+        {
+            GameObject pItem = m_pTile[x, y].GetComponent<BaseTile>().getItem();
+            if (pItem.GetComponent<fruit>().getColor() == color)
+            {
+                Vector3 pos = new Vector3(x, y, 0);
+                vector3s.Add(pos);
+                for (int i = 0; i < 4; i++)
+                {
+                    Vector3 targetPos = curPos + pPos[i];
+                    getConnect(color, (int)targetPos.x, (int)targetPos.y, vector3s, mark);
+                }
+            }
+        }
     }
 
 }

@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Classes\function\StartScene.cs" />
+    <Compile Include="Assets\Classes\Script\BaseTile.cs" />
     <Compile Include="Assets\Classes\Script\fruit.cs" />
     <Compile Include="Assets\Classes\Script\GameScene.cs" />
     <Compile Include="Assets\Classes\Script\LobbyScene.cs" />

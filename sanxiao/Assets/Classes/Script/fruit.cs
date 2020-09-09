@@ -8,9 +8,13 @@ public class fruit : MonoBehaviour
     // Start is called before the first frame update
     private int m_nColor;
 
+    private void Awake()
+    {
+        m_nColor = Random.Range(1, 11);
+    }
     void Start()
     {
-        m_nColor = Random.Range(1 , 11);
+        
 
         string address = "xiaoImage/star";
         address = address + m_nColor.ToString();
@@ -18,7 +22,10 @@ public class fruit : MonoBehaviour
         gameObject.GetComponent<Image>().sprite = Tb3;
 
     }
-
+    public int getColor()
+    {
+        return m_nColor;
+    }
     // Update is called once per frame
     void Update()
     {
