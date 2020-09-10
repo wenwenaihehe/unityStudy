@@ -22,15 +22,17 @@ public class GameScene : MonoBehaviour
     {
         pFruitBack = GameObject.Find("Back");
         Rect backSize = pFruitBack.GetComponent<RectTransform>().rect;
+        //backSize.Contains
         startPoint = new Vector3(backSize.width / 2 * -1, backSize.height / 2 * -1, 0);
         initTile();
         initItem();
         // Invoke("test", 1);
-        CheckConnect();
+       // CheckConnect();
     }
     // Update is called once per frame
     void Update()
     {
+        CheckConnect();
     }
     void initTile()
     {
@@ -88,28 +90,44 @@ public class GameScene : MonoBehaviour
         return pRet;
     }
     public bool CheckConnect()
-    { 
-        int index1, index2;
-        int start, end;
-        int count = 0;
-        Vector3[, ] findPos;
+    {
+        int[, ] mark = new int[nWidth, nHeight];
+        for (int nx = 0; nx < nWidth; nx++)
+        {
+            for (int ny = 0; ny < nHeight; ny++)
+            {
+                mark[nx, ny] = 0;
+            }
+        }
+
         for (int x = 0; x < nWidth; x++)
         {
             for (int y = 0; y < nHeight; y++)
             {
+                if (mark[x, y] == 1)
+                {
+                    continue;
+                }
                 if (m_pTile[x, y].GetComponent<BaseTile>().getItem() != null)
                 {
                     GameObject pItem = m_pTile[x, y].GetComponent<BaseTile>().getItem();
-
                     ArrayList pPos = GetConnectPos(x, y, pItem.GetComponent<fruit>().getColor());
 
                     if (pPos.Count >= 3)
                     {
-                        for (int i = 0; i < pPos.Count; i++)
+                        ArrayList pTargetPos = getPartternStart(pPos, 3);
+                        if (pTargetPos.Count >= 3)
                         {
-                            Vector3 p = (Vector3)pPos[i];
-
-                            Console.WriteLine("x: {0} , y:{1}", p.x, p.y);
+                            for (int i = 0; i < pTargetPos.Count; i++)
+                            {
+                                Vector3 curPoint = (Vector3)pTargetPos[i];
+                                mark[(int)curPoint.x, (int)curPoint.y] = 1;
+                                var pTile = m_pTile[(int)curPoint.x, (int)curPoint.y];
+                                if (pTile)
+                                {
+                                    pTile.GetComponent<BaseTile>().AttachItem(null);
+                                }
+                            }
                         }
                     }
                 }
@@ -130,8 +148,6 @@ public class GameScene : MonoBehaviour
             }
         }
         getConnect(color, x, y, targetList, mark);
-        Debug.Log("ffffff");
-        Debug.Log(targetList.Count);
         return targetList;
     }
     void getConnect(int color, int x, int y, ArrayList vector3s, int[,] mark)
@@ -161,6 +177,51 @@ public class GameScene : MonoBehaviour
                 }
             }
         }
+    }
+    ArrayList getPartternStart(ArrayList points, int Line)
+    {
+        ArrayList _targetList = new ArrayList();
+        for (int i = 0; i < points.Count; i++)
+        {
+            Vector3 curPoint = (Vector3)points[i];
+            ArrayList Ts = checkLinePattern(points, Line, curPoint);
+            if (Ts.Count >= Line)
+            {
+                return Ts;
+            }
+        }
+        return _targetList;
+    }
+    ArrayList checkLinePattern(ArrayList points, int Line, Vector3 curPoint)
+    {
+        Vector3[] pPos = { new Vector3(0, 1), new Vector3(1, 0), new Vector3(-1, 0), new Vector3(0, -1) };
+        ArrayList _targetList = new ArrayList();
+        _targetList.Add(curPoint);
+        for (int i = 0; i < 4; i++)
+        {
+            bool haveTarget = true;
+            for (int j = 1; j < Line; j++)
+            {
+                Vector3 Tf = curPoint + pPos[i] * j;
+                if (!points.Contains(Tf))
+                {
+                    haveTarget = false;
+                    break;
+                }
+            }
+            if (haveTarget)
+            {
+                for (int j = 1; j < Line; j++)
+                {
+                    Vector3 Tf = curPoint + pPos[i] * j;
+                    
+                    _targetList.Add(Tf);
+                }
+                break;
+            }
+        }
+
+        return _targetList;
     }
 
 }

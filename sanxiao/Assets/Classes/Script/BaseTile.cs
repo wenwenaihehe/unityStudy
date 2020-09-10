@@ -5,9 +5,13 @@ using UnityEngine;
 public class BaseTile : MonoBehaviour
 {
     private GameObject m_pItem;
-    void Start()
+    private void Awake()
     {
         m_pItem = null;
+    }
+    void Start()
+    {
+        //m_pItem = null;
     }
 
     public GameObject getItem()
@@ -22,7 +26,7 @@ public class BaseTile : MonoBehaviour
     {
         if (m_pItem)
         {
-            Destroy(m_pItem);
+            m_pItem.GetComponent<fruit>().onDisposed();
             m_pItem = null;
         }
         m_pItem = pItem;

@@ -10,7 +10,7 @@ public class fruit : MonoBehaviour
 
     private void Awake()
     {
-        m_nColor = Random.Range(1, 11);
+        m_nColor = Random.Range(1, 5);
     }
     void Start()
     {
@@ -21,6 +21,11 @@ public class fruit : MonoBehaviour
         Sprite Tb3 = (Sprite)Resources.Load(address, typeof(Sprite)) as Sprite;
         gameObject.GetComponent<Image>().sprite = Tb3;
 
+    }
+
+    public void onDisposed()
+    {
+        Destroy(gameObject);
     }
     public int getColor()
     {
