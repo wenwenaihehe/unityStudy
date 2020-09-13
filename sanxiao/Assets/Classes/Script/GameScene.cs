@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.Experimental.UIElements;
 
 public class GameScene : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class GameScene : MonoBehaviour
     private GameObject pFruitBack;
     private GameObject[,] m_pTile;
     private GameObject[,] m_pItem;
+    private bool m_drop = true;
     private Vector3 startPoint;
     void Start()
     {
@@ -27,12 +29,49 @@ public class GameScene : MonoBehaviour
         initTile();
         initItem();
         // Invoke("test", 1);
-       // CheckConnect();
+        // CheckConnect();
+        CheckConnect();
+        InvokeRepeating("updateDropTimer", 0, Time.deltaTime);
+
     }
     // Update is called once per frame
     void Update()
     {
-        CheckConnect();
+
+  
+    }
+    void updateDropTimer()
+    {
+        m_drop = false;
+        for (int x = 0; x < nWidth; x++)
+        {
+            for (int y = 0; y < nHeight; y++)
+            {
+                m_pTile[x, y].GetComponent<BaseTile>().check();
+            }
+        }
+        for (int x = 0; x < nWidth; x++)
+        {
+            for (int y = 0; y < nHeight; y++)
+            {
+                BaseTile pTile = m_pTile[x, y].GetComponent<BaseTile>();
+                GameObject pItem = pTile.getItem();
+                if (pItem && pItem.GetComponent<fruit>().getDrop() == true)
+                {
+                    m_drop = true;
+                    break;
+                }
+            }
+        }
+        if (m_drop == false)
+        {
+            CheckConnect();
+        }
+        else
+        {
+            //InvokeRepeating("updateDropTimer", 0, Time.deltaTime);
+            //CancelInvoke
+        }
     }
     void initTile()
     {
@@ -40,19 +79,23 @@ public class GameScene : MonoBehaviour
 
         for (int x = 0; x < nWidth; x++)
         {
-            for (int y = 0; y < nHeight; y++)
+            for (int y = nHeight - 1; y >=0; y--)
             {
                 GameObject pTile = getTile();
                 pTile.transform.SetParent(pFruitBack.transform);
                 float nWidth = pTile.GetComponent<RectTransform>().rect.width;
                 float nHeight = pTile.GetComponent<RectTransform>().rect.height;
 
-              
+
+                pTile.GetComponent<BaseTile>().setPoint(x, y);
                 pTile.transform.localScale = Vector3.one;
                 Vector3 pos = new Vector3(beginX + x * (nWidth + SpacingX), beginY + y * (nHeight + SpacingY), 0);
                 pTile.transform.localPosition = pos + startPoint;
 
                 m_pTile[x, y] = pTile;
+                pTile.transform.SetSiblingIndex(100 - (x * y));
+                //pTile.GetComponent<SpriteRenderer>().sortingOrder = 100- x * y;
+           
             }
         }
     }
@@ -223,5 +266,21 @@ public class GameScene : MonoBehaviour
 
         return _targetList;
     }
+    public GameObject[, ] getAllTile()
+    {
+        return m_pTile;
+    }
+    public GameObject getTile(int x, int y)
+    {
+        if (x < 0 || x >= nWidth || y < 0 || y >= nHeight)
+        {
+            return null;
+        }
+        return m_pTile[x, y];
+    }
+        
+    void startDrop()
+    {
 
+    }
 }
