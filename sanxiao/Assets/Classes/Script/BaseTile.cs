@@ -30,6 +30,10 @@ public class BaseTile : MonoBehaviour
     public void SetItem(GameObject pItem)
     {
         m_pItem = pItem;
+        if (pItem)
+        {
+            pItem.GetComponent<fruit>().setTile(gameObject);
+        }
     }
     public void AttachItem(GameObject pItem)
     {
@@ -61,9 +65,7 @@ public class BaseTile : MonoBehaviour
             GameObject pTileCom = pTargetTile.GetComponent<BaseTile>().getItem();
             if (pTileCom == null)
             {
-                
-                m_pItem.GetComponent<fruit>().startDrop(pTargetTile);
-                SetItem(null);
+                m_pItem.GetComponent<fruit>().startDrop(pTargetTile);   
             }
         }
     }

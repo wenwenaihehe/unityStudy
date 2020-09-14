@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{056D7641-04DA-F595-17DD-5CA67C7E059B}|">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Classes/Script/BaseTile.cs">
     <Files>
-      <File FileName="Assets/Classes/Script/GameScene.cs" Line="33" Column="17" IsPinned="True" />
-      <File FileName="Assets/Classes/Script/LobbyScene.cs" />
-      <File FileName="Assets/Classes/Script/fruit.cs" Line="34" Column="24" />
-      <File FileName="Library/PackageCache/com.unity.collab-proxy@1.2.15/Editor/Collab/CollabToolbarButton.cs" />
-      <File FileName="Assets/Classes/function/StartScene.cs" />
-      <File FileName="Assets/Classes/Script/BaseTile.cs" Line="41" Column="16" />
+      <File FileName="Assets/Classes/Script/GameScene.cs" Line="50" Column="1" IsPinned="True" />
+      <File FileName="Assets/Classes/Script/LobbyScene.cs" Line="14" Column="41" />
+      <File FileName="Assets/Classes/Script/fruit.cs" Line="78" Column="1" />
+      <File FileName="Library/PackageCache/com.unity.collab-proxy@1.2.15/Editor/Collab/CollabToolbarButton.cs" Line="1" Column="1" />
+      <File FileName="Assets/Classes/function/StartScene.cs" Line="1" Column="1" />
+      <File FileName="Assets/Classes/Script/BaseTile.cs" Line="52" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,7 +16,7 @@
               <Node name="Classes" expanded="True">
                 <Node name="function" expanded="True" />
                 <Node name="Script" expanded="True">
-                  <Node name="GameScene.cs" selected="True" />
+                  <Node name="BaseTile.cs" selected="True" />
                 </Node>
               </Node>
             </Node>
@@ -29,7 +29,10 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f4f5923d-2e1c-4f09-a506-4e392c801617" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/jianghehe/Desktop/jhCode/gitHub/unityStudy/sanxiao/Assets/Classes/Script/fruit.cs" relfile="Assets/Classes/Script/fruit.cs" line="77" column="1" />
+      <Breakpoint file="/Users/jianghehe/Desktop/jhCode/gitHub/unityStudy/sanxiao/Assets/Classes/Script/BaseTile.cs" relfile="Assets/Classes/Script/BaseTile.cs" line="51" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

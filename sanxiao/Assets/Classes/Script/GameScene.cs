@@ -31,7 +31,7 @@ public class GameScene : MonoBehaviour
         // Invoke("test", 1);
         // CheckConnect();
         CheckConnect();
-        InvokeRepeating("updateDropTimer", 0, Time.deltaTime);
+        InvokeRepeating("updateDropTimer", 0.1f, Time.deltaTime);
 
     }
     // Update is called once per frame
@@ -65,7 +65,7 @@ public class GameScene : MonoBehaviour
         }
         if (m_drop == false)
         {
-            CheckConnect();
+            //CheckConnect();
         }
         else
         {
@@ -122,6 +122,7 @@ public class GameScene : MonoBehaviour
                 pItem.transform.localPosition = Vector3.zero;
 
                 pTile.GetComponent<BaseTile>().SetItem(pItem);
+                //pItem.GetComponent<fruit>().setTile(pTile);
             }
         }
     }

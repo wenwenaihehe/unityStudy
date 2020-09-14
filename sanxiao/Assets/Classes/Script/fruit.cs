@@ -27,9 +27,10 @@ public class fruit : MonoBehaviour
         {
             return;
         }
+        m_pTile.GetComponent<BaseTile>().SetItem(null);
         m_bIsAct = true;
-        m_pTile = pTile;
-        m_pTile.GetComponent<BaseTile>().SetItem(gameObject);
+        setTile(pTile);
+        pTile.GetComponent<BaseTile>().SetItem(gameObject);
 
         transform.SetAsLastSibling();
         transform.parent = m_pTile.transform;
@@ -77,9 +78,9 @@ public class fruit : MonoBehaviour
             transform.position = targetPos;
             m_bDrop = false;
             m_bIsAct = false;
-           // m_pTile.GetComponent<BaseTile>().SetItem(gameObject);
-            m_pTile.GetComponent<BaseTile>().check();
+           // m_pTile.GetComponent<BaseTile>().SetItem(gameObject)
             CancelInvoke("updateDrop");
+            m_pTile.GetComponent<BaseTile>().check();
         }
      
     }
