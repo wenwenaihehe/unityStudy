@@ -67,6 +67,12 @@ public class BaseTile : MonoBehaviour
             {
                 m_pItem.GetComponent<fruit>().startDrop(pTargetTile);   
             }
+            if (curPoint.y == (BOARD.GetComponent<GameScene>().getBoardHeight() - 1))
+            {
+                GameObject pNewItem = BOARD.GetComponent<GameScene>().getItem();
+                pNewItem.GetComponent<fruit>().startDrop(gameObject); 
+            }
+
         }
     }
     // Update is called once per frame

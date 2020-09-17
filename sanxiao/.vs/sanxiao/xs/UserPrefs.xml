@@ -2,11 +2,11 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Classes/Script/BaseTile.cs">
     <Files>
       <File FileName="Assets/Classes/Script/GameScene.cs" Line="50" Column="1" IsPinned="True" />
-      <File FileName="Assets/Classes/Script/LobbyScene.cs" Line="14" Column="41" />
-      <File FileName="Assets/Classes/Script/fruit.cs" Line="78" Column="1" />
-      <File FileName="Library/PackageCache/com.unity.collab-proxy@1.2.15/Editor/Collab/CollabToolbarButton.cs" Line="1" Column="1" />
-      <File FileName="Assets/Classes/function/StartScene.cs" Line="1" Column="1" />
-      <File FileName="Assets/Classes/Script/BaseTile.cs" Line="52" Column="1" NotebookId="1" />
+      <File FileName="Assets/Classes/Script/LobbyScene.cs" />
+      <File FileName="Assets/Classes/Script/fruit.cs" />
+      <File FileName="Library/PackageCache/com.unity.collab-proxy@1.2.15/Editor/Collab/CollabToolbarButton.cs" />
+      <File FileName="Assets/Classes/function/StartScene.cs" />
+      <File FileName="Assets/Classes/Script/BaseTile.cs" Line="60" Column="21" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -27,11 +27,10 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f4f5923d-2e1c-4f09-a506-4e392c801617" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="935d4208-3974-455d-b3c8-e20d168468a0" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/jianghehe/Desktop/jhCode/gitHub/unityStudy/sanxiao/Assets/Classes/Script/fruit.cs" relfile="Assets/Classes/Script/fruit.cs" line="77" column="1" />
-      <Breakpoint file="/Users/jianghehe/Desktop/jhCode/gitHub/unityStudy/sanxiao/Assets/Classes/Script/BaseTile.cs" relfile="Assets/Classes/Script/BaseTile.cs" line="51" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

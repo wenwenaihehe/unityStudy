@@ -40,6 +40,14 @@ public class GameScene : MonoBehaviour
 
   
     }
+    public int getBoardHeight()
+    {
+        return nHeight;
+    }
+    public int getBoardWidth()
+    {
+        return nWidth;
+    }
     void updateDropTimer()
     {
         m_drop = false;
@@ -65,7 +73,7 @@ public class GameScene : MonoBehaviour
         }
         if (m_drop == false)
         {
-            //CheckConnect();
+            CheckConnect();
         }
         else
         {
@@ -126,7 +134,7 @@ public class GameScene : MonoBehaviour
             }
         }
     }
-    GameObject getItem()
+    public GameObject getItem()
     {
         GameObject pItem = (GameObject)Resources.Load("Prefab/Image");
         GameObject pRet = Instantiate(pItem);

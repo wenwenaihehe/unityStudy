@@ -27,7 +27,10 @@ public class fruit : MonoBehaviour
         {
             return;
         }
-        m_pTile.GetComponent<BaseTile>().SetItem(null);
+        if (m_pTile)
+        {
+            m_pTile.GetComponent<BaseTile>().SetItem(null);
+        }
         m_bIsAct = true;
         setTile(pTile);
         pTile.GetComponent<BaseTile>().SetItem(gameObject);
@@ -35,7 +38,7 @@ public class fruit : MonoBehaviour
         transform.SetAsLastSibling();
         transform.parent = m_pTile.transform;
         transform.localPosition = Vector3.zero + new Vector3(0, m_pTile.GetComponent<RectTransform>().rect.height);
-
+        transform.localScale = Vector3.one;
 
         InvokeRepeating("updateDrop", 0, Time.deltaTime);
       
