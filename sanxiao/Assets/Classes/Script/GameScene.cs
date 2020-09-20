@@ -14,12 +14,20 @@ public class GameScene : MonoBehaviour
     public int beginY = 70;
     public int SpacingX = 5; //x的间隔
     public int SpacingY = 5; //y的间隔
+    public int TileWidth = 55;
+    public int TileHeigiht = 55;
 
     private GameObject pFruitBack;
     private GameObject[,] m_pTile;
     private GameObject[,] m_pItem;
     private bool m_drop = true;
     private Vector3 startPoint;
+
+    private GameObject m_pClickItem;
+    private void Awake()
+    {
+        //Input.mousePresent = true;
+    }
     void Start()
     {
         pFruitBack = GameObject.Find("Back");
@@ -28,17 +36,37 @@ public class GameScene : MonoBehaviour
         startPoint = new Vector3(backSize.width / 2 * -1, backSize.height / 2 * -1, 0);
         initTile();
         initItem();
-        // Invoke("test", 1);
-        // CheckConnect();
-        CheckConnect();
-        InvokeRepeating("updateDropTimer", 0.1f, Time.deltaTime);
+     //   CheckConnect();
+       // InvokeRepeating("updateDropTimer", 0.1f, Time.deltaTime);
+        m_pClickItem = null;
 
     }
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Mouse0) == true)
+        {
+            m_pClickItem = null;
+            Vector3 pCurPoint = Input.mousePosition;
+            if (m_pClickItem == null)
+            {
+                int curX = (int)((pCurPoint.x - beginX) / TileWidth);
+                int curY = (int)((pCurPoint.x - beginY) / TileHeigiht);
 
-  
+            }
+            Debug.Log("1111111");
+        }
+
+        if (Input.GetMouseButtonDown(0) && m_pClickItem != null)// || Input.GetMouseButtonDown(0) == true)
+        {
+            Debug.Log("2222222");
+
+        }
+        if (Input.GetKeyUp(KeyCode.Mouse0) == true)
+        {
+            Debug.Log("3333333");
+        }
+
     }
     public int getBoardHeight()
     {

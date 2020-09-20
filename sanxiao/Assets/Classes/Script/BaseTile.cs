@@ -52,7 +52,7 @@ public class BaseTile : MonoBehaviour
     //判断是否进入掉落状态
     public void check()
     {
-        if (m_pItem == null)
+        if (m_pItem == null && y != BOARD.GetComponent<GameScene>().getBoardHeight() - 1)
         {
             return;
         }
@@ -63,11 +63,11 @@ public class BaseTile : MonoBehaviour
         if (pTargetTile)
         {
             GameObject pTileCom = pTargetTile.GetComponent<BaseTile>().getItem();
-            if (pTileCom == null)
+            if (pTileCom == null && m_pItem)
             {
                 m_pItem.GetComponent<fruit>().startDrop(pTargetTile);   
             }
-            if (curPoint.y == (BOARD.GetComponent<GameScene>().getBoardHeight() - 1))
+            if (curPoint.y == (BOARD.GetComponent<GameScene>().getBoardHeight() - 1) && pTileCom == null && m_pItem == null)
             {
                 GameObject pNewItem = BOARD.GetComponent<GameScene>().getItem();
                 pNewItem.GetComponent<fruit>().startDrop(gameObject); 
