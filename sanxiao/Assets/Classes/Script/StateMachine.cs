@@ -8,7 +8,6 @@ public class StateMachine
     {
        STATE_START_GAME,
        STATE_STABLE,
-       STATE_MACHINE,
        STATE_DISPOSE,
        STATE_DROP,
        STATE_DROP_OVER
@@ -39,9 +38,7 @@ public class StateMachine
         switch (m_sType)
         {
             case stateType.STATE_START_GAME:
-
-                break;
-            case stateType.STATE_MACHINE:
+                startGame();
                 break;
             case stateType.STATE_DISPOSE:
                 break;
@@ -57,6 +54,14 @@ public class StateMachine
     }
     public void startGame()
     {
-        GameScene.getInstance();
+        if (GameScene.getInstance().CheckConnect() == true)
+        {
+            setState(stateType.STATE_DISPOSE);
+        }
+        else
+        {
+            setState(stateType.STATE_STABLE);
+        }
+
     }
 }

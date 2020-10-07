@@ -42,16 +42,15 @@ public class GameScene : MonoBehaviour
     {
         pFruitBack = GameObject.Find("Back");
         Rect backSize = pFruitBack.GetComponent<RectTransform>().rect;
-        //backSize.Contains
         startPoint = new Vector3(backSize.width / 2 * -1, backSize.height / 2 * -1, 0);
         initTile();
         initItem();
        // InvokeRepeating("updateDropTimer", 0.1f, Time.deltaTime);
         m_pClickItem = null;
         StateMachine.getInstance().setState(StateMachine.stateType.STATE_START_GAME);
-
     }
     // Update is called once per frame
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) == true)
@@ -69,14 +68,17 @@ public class GameScene : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0) && m_pClickItem != null)// || Input.GetMouseButtonDown(0) == true)
+        if (Input.GetKey(KeyCode.Mouse0) && m_pClickItem != null)// || Input.GetMouseButtonDown(0) == true)
         {
             Vector3 curMousePoint = Input.mousePosition;
+
+            m_pClickItem.transform.localPosition = curMousePoint;
             Debug.Log("sssssss" + curMousePoint.x.ToString());
 
         }
         if (Input.GetKeyUp(KeyCode.Mouse0) == true)
         {
+            m_pClickItem = null;
             Debug.Log("3333333");
         }
 
@@ -182,8 +184,47 @@ public class GameScene : MonoBehaviour
         pRet.transform.localPosition = Vector3.zero;
         return pRet;
     }
+    public ArrayList getMatchPattern()
+    {
+        ArrayList targetList = new ArrayList();
+        int[,] mark = new int[nWidth, nHeight];
+        for (int nx = 0; nx < nWidth; nx++)
+        {
+            for (int ny = 0; ny < nHeight; ny++)
+            {
+                mark[nx, ny] = 0;
+            }
+        }
+        for (int x = 0; x < nWidth; x++)
+        {
+            for (int y = 0; y < nHeight; y++)
+            {
+                if (mark[x, y] == 1)
+                {
+                    continue;
+                }
+                if (m_pTile[x, y].GetComponent<BaseTile>().getItem() != null)
+                {
+                    GameObject pItem = m_pTile[x, y].GetComponent<BaseTile>().getItem();
+                    ArrayList ArrayPos = GetConnectPos(x, y, pItem.GetComponent<fruit>().getColor());
+                    if (ArrayPos.Count > 3)
+                    {
+                        ArrayList parttern = getPartternStart(ArrayPos, 3);
+                        if (parttern.Count > 3)
+                        {
+                            targetList.Add(parttern);
+                        }
+                    }
+                }
+            }
+
+        }
+        return targetList;
+    }
+
     public bool CheckConnect()
     {
+        bool flag = false;
         int[, ] mark = new int[nWidth, nHeight];
         for (int nx = 0; nx < nWidth; nx++)
         {
@@ -211,6 +252,7 @@ public class GameScene : MonoBehaviour
                         ArrayList pTargetPos = getPartternStart(pPos, 3);
                         if (pTargetPos.Count >= 3)
                         {
+                            flag = true;
                             for (int i = 0; i < pTargetPos.Count; i++)
                             {
                                 Vector3 curPoint = (Vector3)pTargetPos[i];
@@ -226,7 +268,7 @@ public class GameScene : MonoBehaviour
                 }
             }
         }
-        return true;
+        return flag;
     }
     ArrayList GetConnectPos(int x, int y, int color)
     {
