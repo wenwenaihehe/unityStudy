@@ -1,11 +1,12 @@
 ﻿<Properties StartupConfiguration="{056D7641-04DA-F595-17DD-5CA67C7E059B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Classes/Script/GameScene.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Classes/Script/NewFile.txt">
     <Files>
       <File FileName="Assets/Classes/Script/LobbyScene.cs" Line="14" Column="41" />
-      <File FileName="Assets/Classes/Script/fruit.cs" Line="41" Column="44" />
+      <File FileName="Assets/Classes/Script/fruit.cs" />
       <File FileName="Assets/Classes/function/StartScene.cs" />
       <File FileName="Assets/Classes/Script/BaseTile.cs" Line="80" Column="1" />
-      <File FileName="Assets/Classes/Script/GameScene.cs" Line="62" Column="26" />
+      <File FileName="Assets/Classes/Script/GameScene.cs" Line="65" Column="41" />
+      <File FileName="Assets/Classes/Script/NewFile.txt" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,7 +16,7 @@
               <Node name="Classes" expanded="True">
                 <Node name="function" expanded="True" />
                 <Node name="Script" expanded="True">
-                  <Node name="GameScene.cs" selected="True" />
+                  <Node name="NewFile.txt" selected="True" />
                 </Node>
               </Node>
             </Node>
@@ -26,7 +27,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ab76d4d3-1f1d-4b1d-a5f5-2e38a1d7d19f" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="505ff00b-f94f-45f1-a45e-c3295300cd63" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

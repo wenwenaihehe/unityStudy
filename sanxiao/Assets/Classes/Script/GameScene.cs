@@ -24,6 +24,16 @@ public class GameScene : MonoBehaviour
     private Vector3 startPoint;
 
     private GameObject m_pClickItem;
+
+    static private GameScene m_pInstance = null;
+    static public GameScene getInstance()
+    {
+        return m_pInstance;
+    }
+    ~GameScene()
+    {
+        m_pInstance = null;
+    }
     private void Awake()
     {
         //Input.mousePresent = true;
@@ -36,9 +46,9 @@ public class GameScene : MonoBehaviour
         startPoint = new Vector3(backSize.width / 2 * -1, backSize.height / 2 * -1, 0);
         initTile();
         initItem();
-     //   CheckConnect();
        // InvokeRepeating("updateDropTimer", 0.1f, Time.deltaTime);
         m_pClickItem = null;
+        StateMachine.getInstance().setState(StateMachine.stateType.STATE_START_GAME);
 
     }
     // Update is called once per frame
@@ -52,14 +62,17 @@ public class GameScene : MonoBehaviour
             {
                 int curX = (int)((pCurPoint.x - beginX) / TileWidth);
                 int curY = (int)((pCurPoint.x - beginY) / TileHeigiht);
-
+                if (curX >= 0 && curX < nWidth && curY >=0 && curY < nHeight)
+                {
+                    m_pClickItem = m_pTile[curX, curY];
+                }
             }
-            Debug.Log("1111111");
         }
 
         if (Input.GetMouseButtonDown(0) && m_pClickItem != null)// || Input.GetMouseButtonDown(0) == true)
         {
-            Debug.Log("2222222");
+            Vector3 curMousePoint = Input.mousePosition;
+            Debug.Log("sssssss" + curMousePoint.x.ToString());
 
         }
         if (Input.GetKeyUp(KeyCode.Mouse0) == true)

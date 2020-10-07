@@ -8,6 +8,7 @@ public class BaseTile : MonoBehaviour
     private GameObject BOARD;
     private int x;
     private int y;
+
     private void Awake()
     {
         m_pItem = null;
