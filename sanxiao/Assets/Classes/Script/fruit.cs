@@ -47,6 +47,7 @@ public class fruit : MonoBehaviour
     }
     public void onDisposed()
     {
+        m_pTile.GetComponent<BaseTile>().AttachItem(null);
         Destroy(gameObject);
     }
     public int getColor()

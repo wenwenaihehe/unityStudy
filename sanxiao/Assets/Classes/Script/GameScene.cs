@@ -36,6 +36,7 @@ public class GameScene : MonoBehaviour
     }
     private void Awake()
     {
+        m_pInstance = this;
         //Input.mousePresent = true;
     }
     void Start()
@@ -71,7 +72,7 @@ public class GameScene : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && m_pClickItem != null)// || Input.GetMouseButtonDown(0) == true)
         {
             Vector3 curMousePoint = Input.mousePosition;
-
+            m_pClickItem.transform.position = curMousePoint;
             m_pClickItem.transform.localPosition = curMousePoint;
             Debug.Log("sssssss" + curMousePoint.x.ToString());
 
@@ -90,6 +91,15 @@ public class GameScene : MonoBehaviour
     public int getBoardWidth()
     {
         return nWidth;
+    }
+    public void startDrop()
+    {
+        InvokeRepeating("updateDropTimer", 0.0f, Time.deltaTime);
+    }
+    public void dropOver()
+    {
+        CancelInvoke("updateDropTimer");
+        StateMachine.getInstance().setState(StateMachine.stateType.STATE_DROP_OVER);
     }
     void updateDropTimer()
     {
@@ -116,7 +126,7 @@ public class GameScene : MonoBehaviour
         }
         if (m_drop == false)
         {
-            CheckConnect();
+            dropOver();
         }
         else
         {
@@ -184,180 +194,6 @@ public class GameScene : MonoBehaviour
         pRet.transform.localPosition = Vector3.zero;
         return pRet;
     }
-    public ArrayList getMatchPattern()
-    {
-        ArrayList targetList = new ArrayList();
-        int[,] mark = new int[nWidth, nHeight];
-        for (int nx = 0; nx < nWidth; nx++)
-        {
-            for (int ny = 0; ny < nHeight; ny++)
-            {
-                mark[nx, ny] = 0;
-            }
-        }
-        for (int x = 0; x < nWidth; x++)
-        {
-            for (int y = 0; y < nHeight; y++)
-            {
-                if (mark[x, y] == 1)
-                {
-                    continue;
-                }
-                if (m_pTile[x, y].GetComponent<BaseTile>().getItem() != null)
-                {
-                    GameObject pItem = m_pTile[x, y].GetComponent<BaseTile>().getItem();
-                    ArrayList ArrayPos = GetConnectPos(x, y, pItem.GetComponent<fruit>().getColor());
-                    if (ArrayPos.Count > 3)
-                    {
-                        ArrayList parttern = getPartternStart(ArrayPos, 3);
-                        if (parttern.Count > 3)
-                        {
-                            targetList.Add(parttern);
-                        }
-                    }
-                }
-            }
-
-        }
-        return targetList;
-    }
-
-    public bool CheckConnect()
-    {
-        bool flag = false;
-        int[, ] mark = new int[nWidth, nHeight];
-        for (int nx = 0; nx < nWidth; nx++)
-        {
-            for (int ny = 0; ny < nHeight; ny++)
-            {
-                mark[nx, ny] = 0;
-            }
-        }
-
-        for (int x = 0; x < nWidth; x++)
-        {
-            for (int y = 0; y < nHeight; y++)
-            {
-                if (mark[x, y] == 1)
-                {
-                    continue;
-                }
-                if (m_pTile[x, y].GetComponent<BaseTile>().getItem() != null)
-                {
-                    GameObject pItem = m_pTile[x, y].GetComponent<BaseTile>().getItem();
-                    ArrayList pPos = GetConnectPos(x, y, pItem.GetComponent<fruit>().getColor());
-
-                    if (pPos.Count >= 3)
-                    {
-                        ArrayList pTargetPos = getPartternStart(pPos, 3);
-                        if (pTargetPos.Count >= 3)
-                        {
-                            flag = true;
-                            for (int i = 0; i < pTargetPos.Count; i++)
-                            {
-                                Vector3 curPoint = (Vector3)pTargetPos[i];
-                                mark[(int)curPoint.x, (int)curPoint.y] = 1;
-                                var pTile = m_pTile[(int)curPoint.x, (int)curPoint.y];
-                                if (pTile)
-                                {
-                                    pTile.GetComponent<BaseTile>().AttachItem(null);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return flag;
-    }
-    ArrayList GetConnectPos(int x, int y, int color)
-    {
-        ArrayList targetList = new ArrayList();
-        int[,] mark = new int[nWidth, nHeight];
-
-        for (int nx = 0; nx < nWidth; nx++)
-        {
-            for (int ny = 0; ny < nHeight; ny++)
-            {
-                mark[nx, ny] = 0;
-            }
-        }
-        getConnect(color, x, y, targetList, mark);
-        return targetList;
-    }
-    void getConnect(int color, int x, int y, ArrayList vector3s, int[,] mark)
-    {
-        if (x < 0 || x >= nWidth || y < 0 || y >= nWidth)
-        {
-            return;
-        }
-        if (mark[x, y] == 1)
-        {
-            return;
-        }
-        Vector3 curPos = new Vector3(x, y);
-        Vector3[] pPos = { new Vector3(0, 1), new Vector3(1, 0), new Vector3(-1, 0), new Vector3(0, -1)};
-        mark[x, y] = 1;
-        if (m_pTile[x, y].GetComponent<BaseTile>().getItem() != null)
-        {
-            GameObject pItem = m_pTile[x, y].GetComponent<BaseTile>().getItem();
-            if (pItem.GetComponent<fruit>().getColor() == color)
-            {
-                Vector3 pos = new Vector3(x, y, 0);
-                vector3s.Add(pos);
-                for (int i = 0; i < 4; i++)
-                {
-                    Vector3 targetPos = curPos + pPos[i];
-                    getConnect(color, (int)targetPos.x, (int)targetPos.y, vector3s, mark);
-                }
-            }
-        }
-    }
-    ArrayList getPartternStart(ArrayList points, int Line)
-    {
-        ArrayList _targetList = new ArrayList();
-        for (int i = 0; i < points.Count; i++)
-        {
-            Vector3 curPoint = (Vector3)points[i];
-            ArrayList Ts = checkLinePattern(points, Line, curPoint);
-            if (Ts.Count >= Line)
-            {
-                return Ts;
-            }
-        }
-        return _targetList;
-    }
-    ArrayList checkLinePattern(ArrayList points, int Line, Vector3 curPoint)
-    {
-        Vector3[] pPos = { new Vector3(0, 1), new Vector3(1, 0), new Vector3(-1, 0), new Vector3(0, -1) };
-        ArrayList _targetList = new ArrayList();
-        _targetList.Add(curPoint);
-        for (int i = 0; i < 4; i++)
-        {
-            bool haveTarget = true;
-            for (int j = 1; j < Line; j++)
-            {
-                Vector3 Tf = curPoint + pPos[i] * j;
-                if (!points.Contains(Tf))
-                {
-                    haveTarget = false;
-                    break;
-                }
-            }
-            if (haveTarget)
-            {
-                for (int j = 1; j < Line; j++)
-                {
-                    Vector3 Tf = curPoint + pPos[i] * j;
-                    
-                    _targetList.Add(Tf);
-                }
-                break;
-            }
-        }
-
-        return _targetList;
-    }
     public GameObject[, ] getAllTile()
     {
         return m_pTile;
@@ -369,10 +205,5 @@ public class GameScene : MonoBehaviour
             return null;
         }
         return m_pTile[x, y];
-    }
-        
-    void startDrop()
-    {
-
     }
 }

@@ -69,6 +69,7 @@
     <Compile Include="Assets\Classes\Script\fruit.cs" />
     <Compile Include="Assets\Classes\Script\GameScene.cs" />
     <Compile Include="Assets\Classes\Script\LobbyScene.cs" />
+    <Compile Include="Assets\Classes\Script\Match3Config.cs" />
     <Compile Include="Assets\Classes\Script\StateMachine.cs" />
     <Reference Include="Unity.DocZh.Editor">
       <HintPath>/Users/jianghehe/Desktop/jhCode/gitHub/unityStudy/sanxiao/Library/ScriptAssemblies/Unity.DocZh.Editor.dll</HintPath>

@@ -1,13 +1,14 @@
 ﻿<Properties StartupConfiguration="{056D7641-04DA-F595-17DD-5CA67C7E059B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Classes/function/NewClass.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Classes/Script/NewClass.cs">
     <Files>
       <File FileName="Assets/Classes/Script/LobbyScene.cs" Line="9" Column="39" />
-      <File FileName="Assets/Classes/Script/fruit.cs" Line="21" Column="55" />
+      <File FileName="Assets/Classes/Script/fruit.cs" />
       <File FileName="Assets/Classes/function/StartScene.cs" Line="1" Column="1" />
       <File FileName="Assets/Classes/Script/BaseTile.cs" Line="50" Column="30" />
-      <File FileName="Assets/Classes/Script/GameScene.cs" Line="209" Column="1" />
-      <File FileName="Assets/Classes/Script/NewFile.txt" Line="43" Column="42" />
-      <File FileName="Assets/Classes/function/NewClass.cs" Line="1" Column="1" />
+      <File FileName="Assets/Classes/Script/GameScene.cs" Line="73" Column="57" />
+      <File FileName="Assets/Classes/function/function.cs" Line="23" Column="20" />
+      <File FileName="Assets/Classes/Script/StateMachine.cs" Line="89" Column="1" />
+      <File FileName="Assets/Classes/Script/NewClass.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,10 +16,10 @@
           <Node name="sanxiao" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Classes" expanded="True">
-                <Node name="function" expanded="True">
+                <Node name="function" expanded="True" />
+                <Node name="Script" expanded="True">
                   <Node name="NewClass.cs" selected="True" />
                 </Node>
-                <Node name="Script" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -28,7 +29,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="505ff00b-f94f-45f1-a45e-c3295300cd63" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="be7fd1ee-5a7f-4ced-9862-806bc6ac35c3" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

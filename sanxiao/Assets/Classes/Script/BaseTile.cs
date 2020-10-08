@@ -38,11 +38,11 @@ public class BaseTile : MonoBehaviour
     }
     public void AttachItem(GameObject pItem)
     {
-        if (m_pItem)
-        {
-            m_pItem.GetComponent<fruit>().onDisposed();
-            m_pItem = null;
-        }
+        //if (m_pItem)
+        //{
+        //    m_pItem.GetComponent<fruit>().onDisposed();
+        //    m_pItem = null;
+        //}
    
         m_pItem = pItem;
         if (pItem)
