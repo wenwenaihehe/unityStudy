@@ -68,7 +68,7 @@ public class BaseTile : MonoBehaviour
             {
                 m_pItem.GetComponent<fruit>().startDrop(pTargetTile);   
             }
-            if (curPoint.y == (BOARD.GetComponent<GameScene>().getBoardHeight() - 1) && pTileCom == null && m_pItem == null)
+            else if (curPoint.y == (BOARD.GetComponent<GameScene>().getBoardHeight() - 1) && m_pItem == null)
             {
                 GameObject pNewItem = BOARD.GetComponent<GameScene>().getItem();
                 pNewItem.GetComponent<fruit>().startDrop(gameObject); 

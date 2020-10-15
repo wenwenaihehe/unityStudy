@@ -46,14 +46,23 @@ public class GameScene : MonoBehaviour
         startPoint = new Vector3(backSize.width / 2 * -1, backSize.height / 2 * -1, 0);
         initTile();
         initItem();
-       // InvokeRepeating("updateDropTimer", 0.1f, Time.deltaTime);
+        InvokeRepeating("UpdateTouch", 0.0f, Time.deltaTime);
         m_pClickItem = null;
         StateMachine.getInstance().setState(StateMachine.stateType.STATE_START_GAME);
     }
     // Update is called once per frame
-
     void Update()
     {
+    }
+
+    void UpdateTouch()
+    {
+        if (StateMachine.getInstance().GetStateType() != StateMachine.stateType.STATE_STABLE)
+        {
+            m_pClickItem = null;
+            return;
+        }
+      
         if (Input.GetKeyDown(KeyCode.Mouse0) == true)
         {
             m_pClickItem = null;
@@ -61,10 +70,14 @@ public class GameScene : MonoBehaviour
             if (m_pClickItem == null)
             {
                 int curX = (int)((pCurPoint.x - beginX) / TileWidth);
-                int curY = (int)((pCurPoint.x - beginY) / TileHeigiht);
+                int curY = (int)((pCurPoint.y - beginY) / TileHeigiht);
                 if (curX >= 0 && curX < nWidth && curY >=0 && curY < nHeight)
                 {
-                    m_pClickItem = m_pTile[curX, curY];
+                    m_pClickItem = m_pTile[curX, curY].GetComponent<BaseTile>().getItem();
+                    GameObject pFather = m_pClickItem.transform.parent.gameObject;
+                    int i32BlindIndex = pFather.transform.childCount;
+                    m_pClickItem.transform.SetSiblingIndex(i32BlindIndex - 1);
+
                 }
             }
         }
@@ -72,8 +85,13 @@ public class GameScene : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && m_pClickItem != null)// || Input.GetMouseButtonDown(0) == true)
         {
             Vector3 curMousePoint = Input.mousePosition;
-            m_pClickItem.transform.position = curMousePoint;
-            m_pClickItem.transform.localPosition = curMousePoint;
+            RectTransform nowRect = gameObject.GetComponent<RectTransform>();
+            Vector2 CurPoint;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(nowRect, curMousePoint, Camera.main, out CurPoint);
+            Vector3 targetPoint = CurPoint;
+            //m_pClickItem.transform.position = curMousePoint;
+            m_pClickItem.transform.localPosition = targetPoint;
+            
             Debug.Log("sssssss" + curMousePoint.x.ToString());
 
         }
@@ -178,9 +196,9 @@ public class GameScene : MonoBehaviour
             {
                 GameObject pTile = m_pTile[x, y];
                 GameObject pItem = getItem();
-                pItem.transform.SetParent(pTile.transform);
+                pItem.transform.SetParent(pFruitBack.transform);
                 pItem.transform.localScale = Vector3.one;
-                pItem.transform.localPosition = Vector3.zero;
+                pItem.transform.localPosition = pTile.transform.localPosition;
 
                 pTile.GetComponent<BaseTile>().SetItem(pItem);
                 //pItem.GetComponent<fruit>().setTile(pTile);

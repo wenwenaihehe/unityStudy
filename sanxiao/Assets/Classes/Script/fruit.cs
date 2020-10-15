@@ -36,8 +36,8 @@ public class fruit : MonoBehaviour
         pTile.GetComponent<BaseTile>().SetItem(gameObject);
 
         transform.SetAsLastSibling();
-        transform.parent = m_pTile.transform;
-        transform.localPosition = Vector3.zero + new Vector3(0, m_pTile.GetComponent<RectTransform>().rect.height);
+        transform.parent = GameObject.Find("Back").transform;//m_pTile.transform;
+        transform.localPosition = pTile.transform.localPosition + new Vector3(0, pTile.GetComponent<RectTransform>().rect.height);
         transform.localScale = Vector3.one;
 
         InvokeRepeating("updateDrop", 0, Time.deltaTime);
@@ -74,15 +74,15 @@ public class fruit : MonoBehaviour
     }
     void updateDrop()
     {
-        Vector3 targetPos = m_pTile.transform.TransformPoint(0, 0, 0);
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, 1 * Time.deltaTime);
+        Vector3 targetPos = m_pTile.transform.localPosition;
+        Vector3 curPos = Vector3.MoveTowards(transform.localPosition, targetPos, 300 * Time.deltaTime);
+        transform.localPosition = curPos;
 
-        if (Vector3.Distance(transform.position, targetPos) < 0.05f)
+        if (Vector3.Distance(transform.localPosition, targetPos) < 0.05f)
         {
-            transform.position = targetPos;
+            transform.localPosition = targetPos;
             m_bDrop = false;
             m_bIsAct = false;
-           // m_pTile.GetComponent<BaseTile>().SetItem(gameObject)
             CancelInvoke("updateDrop");
             m_pTile.GetComponent<BaseTile>().check();
         }
