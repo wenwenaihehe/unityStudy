@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{056D7641-04DA-F595-17DD-5CA67C7E059B}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Classes/Script/GameScene.cs">
     <Files>
-      <File FileName="Assets/Classes/Script/LobbyScene.cs" Line="9" Column="39" />
-      <File FileName="Assets/Classes/Script/fruit.cs" />
+      <File FileName="Assets/Classes/Script/LobbyScene.cs" Line="14" Column="41" />
+      <File FileName="Assets/Classes/Script/fruit.cs" Line="78" Column="85" />
       <File FileName="Assets/Classes/function/StartScene.cs" />
-      <File FileName="Assets/Classes/Script/BaseTile.cs" />
-      <File FileName="Assets/Classes/Script/GameScene.cs" Line="208" Column="1" />
-      <File FileName="Assets/Classes/function/function.cs" />
+      <File FileName="Assets/Classes/Script/BaseTile.cs" Line="71" Column="18" />
+      <File FileName="Assets/Classes/Script/GameScene.cs" Line="90" Column="120" />
+      <File FileName="Assets/Classes/function/function.cs" Line="42" Column="21" />
       <File FileName="Assets/Classes/Script/StateMachine.cs" />
     </Files>
     <Pads>
