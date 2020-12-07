@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 public class Function
@@ -17,14 +18,10 @@ public class Function
     }
     public bool isFileExit(string strAddress)
     {
-        return System.IO.File.Exists(strAddress);
+        return File.Exists(strAddress);
     }
     public GameObject LoadPrefab(string strAddress)
     {
-        if (isFileExit(strAddress) == false)
-        {
-            return null;
-        }
         GameObject o = Resources.Load(strAddress) as GameObject;
         return o;
     }
