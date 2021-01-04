@@ -67,6 +67,7 @@
     <Compile Include="Assets\Script\Classes\Script\BaseTile.cs" />
     <Compile Include="Assets\Script\Classes\Script\GameScene.cs" />
     <Compile Include="Assets\Script\Classes\Script\SnakeHead.cs" />
+    <Compile Include="Assets\Script\Classes\function\GameTouch.cs" />
     <Compile Include="Assets\Script\Classes\function\StartScene.cs" />
     <Compile Include="Assets\Script\Classes\function\function.cs" />
     <Reference Include="Unity.Timeline.Editor">
