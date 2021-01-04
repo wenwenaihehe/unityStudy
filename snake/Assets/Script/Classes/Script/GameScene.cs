@@ -12,6 +12,8 @@ public class GameScene : MonoBehaviour
     public int i32StartY;
 
     public GameObject[,] m_mapTile;
+    List<GameObject> m_vecSnake;
+    GameObject m_pHead;
     private void Awake()
     {
 
@@ -20,12 +22,12 @@ public class GameScene : MonoBehaviour
     void Start()
     {
         initTile();
-        GameObject oSnakeHead = Function.getInstance().LoadPrefab("Prefab/SnakeHead");
-        oSnakeHead = Instantiate(oSnakeHead);
-        oSnakeHead.transform.localScale = Vector3.one;
-        oSnakeHead.transform.SetParent(transform);
+        m_pHead = Function.getInstance().LoadPrefab("Prefab/SnakeHead");
+        m_pHead = Instantiate(m_pHead);
+        m_pHead.transform.localScale = Vector3.one;
+        m_pHead.transform.SetParent(transform);
 
-        
+        InvokeRepeating("updateTimer", 0, Time.deltaTime);
     }
     void initTile()
     {
@@ -47,9 +49,15 @@ public class GameScene : MonoBehaviour
             }
         }
     }
-    // Update is called once per frame
-    void Update()
+    void updateTimer()
     {
-        
+        if (Input.GetKeyDown(KeyCode.LeftArrow)
+        {
+            
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow)
+        {
+
+        }
     }
 }

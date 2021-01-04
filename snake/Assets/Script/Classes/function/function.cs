@@ -2,6 +2,11 @@
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEditorInternal;
 public class Function
 {
     public Function()
@@ -15,6 +20,16 @@ public class Function
             m_pInstance = new Function();
         }
         return m_pInstance;
+    }
+    //切换场景
+    public void repleaceScene(string address)
+    {
+        SceneManager.LoadScene(address);
+    }
+    //获取当前运行的场景
+    public Scene getCurScene()
+    {
+        return SceneManager.GetActiveScene();
     }
     public bool isFileExit(string strAddress)
     {
@@ -54,5 +69,10 @@ public class Function
             }
         }
         return null;
+    }
+    //获取游戏每一秒运行的帧数
+    public float getDeltaTime()
+    {
+        return Time.deltaTime;
     }
 }
