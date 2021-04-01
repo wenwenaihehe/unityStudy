@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{DDDA2922-4CD2-15A3-992D-D8764C4AA357}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Lobby.cs">
+    <Files>
+      <File FileName="Assets/Script/Lobby.cs" Line="21" Column="31" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="testInputFIle" expanded="True">
+            <Node name="Assets" expanded="True" selected="True">
+              <Node name="Script" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f223233c-2dab-48cd-afdb-89b7c5633305" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/jianghehe/Desktop/jhCode/gitHub/unityStudy/testInputFIle/Assets/Script/Lobby.cs" relfile="Assets/Script/Lobby.cs" line="21" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

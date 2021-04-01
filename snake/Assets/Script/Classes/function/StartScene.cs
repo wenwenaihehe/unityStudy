@@ -9,7 +9,7 @@ public class StartScene : MonoBehaviour
     [RuntimeInitializeOnLoadMethod]
     static void Initialize()
     {
-        string startSceneName = "GameScene";
+        string startSceneName = "SampleScene";
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name.Equals(startSceneName))
         {

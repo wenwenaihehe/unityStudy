@@ -1,29 +1,23 @@
 ﻿<Properties StartupConfiguration="{EA5E5C94-03A1-AEDC-67AD-8DF2AB077E38}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Classes/Script/SnakeHead.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Classes/Script/xueHundred/xuePlayer.cs">
     <Files>
-      <File FileName="Assets/Script/Classes/Script/GameScene.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Classes/function/function.cs" Line="40" Column="65" />
-      <File FileName="Assets/Script/Classes/function/StartScene.cs" Line="25" Column="6" />
-      <File FileName="Assets/Script/Classes/function/NewClass.cs" Line="30" Column="22" />
-      <File FileName="Assets/Script/Classes/Script/SnakeHead.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Classes/function/function.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Classes/function/StartScene.cs" />
+      <File FileName="Assets/Script/Classes/function/GameTouch.cs" />
+      <File FileName="Assets/Script/Classes/Script/xueHundred/xuePlayer.cs" Line="22" Column="64" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="snake" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Plugins" expanded="True">
-                <Node name="Demigiant" expanded="True">
-                  <Node name="DOTween" expanded="True">
-                    <Node name="Modules" expanded="True" />
-                  </Node>
-                </Node>
-              </Node>
               <Node name="Script" expanded="True">
                 <Node name="Classes" expanded="True">
-                  <Node name="function" expanded="True" />
+                  <Node name="function" expanded="True">
+                    <Node name="StartScene.cs" selected="True" />
+                  </Node>
                   <Node name="Script" expanded="True">
-                    <Node name="SnakeHead.cs" selected="True" />
+                    <Node name="xueHundred" expanded="True" />
                   </Node>
                 </Node>
               </Node>
@@ -35,11 +29,9 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="225665e4-9775-46a4-965b-4ae5b5f16ae9" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ad3ac097-80e4-44b8-99b9-f85656c466d0" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/jianghehe/Desktop/jhCode/gitHub/unityStudy/snake/Assets/Script/Classes/function/function.cs" relfile="Assets/Script/Classes/function/function.cs" line="67" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
