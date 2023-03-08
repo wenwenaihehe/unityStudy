@@ -1,0 +1,27 @@
+
+floor_stay.png
+size: 492,168
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+floor_green_normal
+  rotate: false
+  xy: 169, 6
+  size: 165, 160
+  orig: 165, 160
+  offset: 0, 0
+  index: -1
+floor_green_ticket
+  rotate: false
+  xy: 2, 2
+  size: 165, 164
+  orig: 165, 164
+  offset: 0, 0
+  index: -1
+floor_white_normal
+  rotate: false
+  xy: 336, 12
+  size: 154, 154
+  orig: 154, 154
+  offset: 0, 0
+  index: -1

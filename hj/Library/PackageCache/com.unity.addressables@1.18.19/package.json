@@ -1,0 +1,52 @@
+{
+  "name": "com.unity.addressables",
+  "displayName": "Addressables",
+  "version": "1.18.19",
+  "unity": "2018.4",
+  "description": "The Addressable Asset System allows the developer to ask for an asset via its address. Once an asset (e.g. a prefab) is marked \"addressable\", it generates an address which can be called from anywhere. Wherever the asset resides (local or remote), the system will locate it and its dependencies, then return it.\n\nUse 'Window->Asset Management->Addressables' to begin working with the system.\n\nAddressables use asynchronous loading to support loading from any location with any collection of dependencies. Whether you have been using direct references, traditional asset bundles, or Resource folders, addressables provide a simpler way to make your game more dynamic. Addressables simultaneously opens up the world of asset bundles while managing all the complexity.\n\nFor usage samples, see github.com/Unity-Technologies/Addressables-Sample",
+  "keywords": [
+    "asset",
+    "resources",
+    "bundle",
+    "bundles",
+    "assetbundles"
+  ],
+  "dependencies": {
+    "com.unity.scriptablebuildpipeline": "1.19.2",
+    "com.unity.modules.assetbundle": "1.0.0",
+    "com.unity.modules.imageconversion": "1.0.0",
+    "com.unity.modules.jsonserialize": "1.0.0",
+    "com.unity.modules.unitywebrequest": "1.0.0",
+    "com.unity.modules.unitywebrequestassetbundle": "1.0.0"
+  },
+  "repository": {
+    "url": "https://github.cds.internal.unity3d.com/unity/Addressables.git",
+    "type": "git",
+    "revision": "eb086c67e6a325f887f087e89a7be9a364fcfe4d"
+  },
+  "upmCi": {
+    "footprint": "53363b22d657faa6828f1177d5a3e9dc17119f61"
+  },
+  "samples": [
+    {
+      "displayName": "Addressables Utility",
+      "description": "This sample contains a set of utility functions for Addressables.",
+      "path": "Samples~/AddressablesUtility"
+    },
+    {
+      "displayName": "Disable AssetImport on Build",
+      "description": "A script that disables asset importing during a player build.  This improves build performance since AssetBundles are copied into StreamingAssets at build time.",
+      "path": "Samples~/DisableAssetImportOnBuild"
+    },
+    {
+      "displayName": "Import Groups Tool",
+      "description": "A tool that imports group assets (for example from a custom package) to the current project.",
+      "path": "Samples~/ImportExistingGroup"
+    },
+    {
+      "displayName": "Prefab Spawner",
+      "description": "A basic script that instantiates and destroys a prefab AssetReference.",
+      "path": "Samples~/PrefabSpawner"
+    }
+  ]
+}

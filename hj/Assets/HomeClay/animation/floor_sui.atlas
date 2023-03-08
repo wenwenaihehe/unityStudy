@@ -1,0 +1,76 @@
+
+floor_sui.png
+size: 237,145
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+floor_green_sui_1
+  rotate: true
+  xy: 92, 9
+  size: 52, 67
+  orig: 52, 67
+  offset: 0, 0
+  index: -1
+floor_green_sui_2
+  rotate: false
+  xy: 92, 63
+  size: 72, 80
+  orig: 72, 80
+  offset: 0, 0
+  index: -1
+floor_green_sui_3
+  rotate: false
+  xy: 50, 5
+  size: 37, 41
+  orig: 37, 42
+  offset: 0, 0
+  index: -1
+floor_green_sui_4
+  rotate: true
+  xy: 216, 15
+  size: 16, 19
+  orig: 16, 19
+  offset: 0, 0
+  index: -1
+floor_green_sui_5
+  rotate: true
+  xy: 161, 2
+  size: 29, 26
+  orig: 29, 26
+  offset: 0, 0
+  index: -1
+floor_white_sui_1
+  rotate: false
+  xy: 2, 48
+  size: 88, 95
+  orig: 88, 95
+  offset: 0, 0
+  index: -1
+floor_white_sui_2
+  rotate: true
+  xy: 2, 2
+  size: 44, 46
+  orig: 44, 46
+  offset: 0, 0
+  index: -1
+floor_white_sui_3
+  rotate: false
+  xy: 166, 33
+  size: 55, 46
+  orig: 55, 46
+  offset: 0, 0
+  index: -1
+floor_white_sui_4
+  rotate: false
+  xy: 166, 81
+  size: 62, 62
+  orig: 62, 62
+  offset: 0, 0
+  index: -1
+floor_white_sui_5
+  rotate: false
+  xy: 189, 5
+  size: 25, 26
+  orig: 25, 26
+  offset: 0, 0
+  index: -1
